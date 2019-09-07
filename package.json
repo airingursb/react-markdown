@@ -2,6 +2,7 @@
   "name": "react-markdown",
   "version": "0.1.0",
   "private": true,
+  "main": "main.js",
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -11,7 +12,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "concurrently \"wait-on http://localhost:3000 & electron .\" \"cross-env BROWSER=none npm start\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,5 +29,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.2",
+    "cross-env": "^5.2.1",
+    "electron": "^6.0.7",
+    "electron-is-dev": "^1.1.0",
+    "wait-on": "^3.3.0"
   }
 }
