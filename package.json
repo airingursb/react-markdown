@@ -13,8 +13,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"wait-on http://localhost:3000 & electron .\" \"cross-env BROWSER=none npm start\""
+    "dev": "concurrently \"wait-on http://localhost:3000 & electron .\" \"cross-env BROWSER=none npm start\"",
+    "lint": "eslint src --ext .js --cache --fix",
+    "pre-lint": "node prelint.js"
   },
+  "pre-commit": [
+    "pre-lint"
+  ],
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -35,6 +40,10 @@
     "cross-env": "^5.2.1",
     "electron": "^6.0.7",
     "electron-is-dev": "^1.1.0",
+    "eslint": "^6.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "pre-commit": "^1.2.2",
+    "prop-types": "^15.7.2",
     "wait-on": "^3.3.0"
   }
 }
